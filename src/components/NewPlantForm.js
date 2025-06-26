@@ -7,12 +7,14 @@ function NewPlantForm({ setNewPlants, newPlants }) {
     price: "",
   });
 
-  function handleChange(event) {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
+  function handleChange({ target: { name, value, type } }) {
+    if (type === "number") {
+      value = parseFloat(value);
+    }
+
+    setFormData({ ...formData, [name]: value });
   }
+
   const handleAddPlant = (addedNewPlants) => {
     setNewPlants([...newPlants, addedNewPlants]);
   };

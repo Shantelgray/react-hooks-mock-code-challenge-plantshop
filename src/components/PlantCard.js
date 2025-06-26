@@ -2,8 +2,9 @@ import React, { useState } from "react";
 
 function PlantCard({ plant }) {
   const [isPlants, setIsPlants] = useState(false);
+  const [isEditingPrice, setEditingPrice] = useState(false);
   function handleClick() {
-    setIsPlants((isPlants) => !isPlants);
+    setEditingPrice(!isEditingPrice);
   }
   return (
     <li className="card">
